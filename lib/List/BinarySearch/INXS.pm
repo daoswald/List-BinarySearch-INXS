@@ -3,6 +3,10 @@ package List::BinarySearch::INXS;
 use 5.008000;
 use strict;
 use warnings;
+
+use Inline C => config => prototypes => 'ENABLE';
+use Inline C => config =>
+  prototype  => { binsearch => '&$\@', binsearch_pos => '&$\@' };
 use Inline C => 'DATA';
 
 require Exporter;
@@ -578,7 +582,7 @@ SV* binsearch_pos( SV* block, SV* needle, SV* aref_haystack ) {
 //MODULE = List::BinarySearch::INXS   PACKAGE = List::BinarySearch::INXS
 //PROTOTYPES: ENABLE
 //
-//SV *
+// SV *
 //binsearch (block, needle, aref_haystack)
 //  SV *  block
 //  SV *  needle
@@ -588,10 +592,21 @@ SV* binsearch_pos( SV* block, SV* needle, SV* aref_haystack ) {
 //    /* We need binsearch to return undef or empty list on no match, depending
 //     * on context.  This snippet detects an undef rv, and just massages it
 //     * into an empty list.
-//    */
+//     */
 //    I32 rv = binsearch( block, needle, aref_haystack );
 //    if( rv == -1 ) {
+//      XSRETURN_EMPTY;
+//    }
+//    else {
+//      SV* output = sv_2mortal(newSViv(rv));
+//      PUSHs(output);
+//    }
+//    /* In other words, only return something if our search was successful. */
+//
+//
+//SV *
+//binsearch_pos (block, needle, aref_haystack)
+//  SV *  block
+//  SV *  needle
 //  SV *  aref_haystack
 //  PROTOTYPE: &$\@
-//
-
