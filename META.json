@@ -1,0 +1,54 @@
+{
+   "abstract" : "Binary Search a sorted array with Inline::C routines.",
+   "author" : [
+      "David Oswald <davido [@at] cpan [d.o.t.] org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.140640",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "List-BinarySearch-INXS",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : "0.98"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.62"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "perl" : "5.008000"
+         }
+      }
+   },
+   "provides" : {
+      "List::BinarySearch::INXS" : {
+         "file" : "lib/List/BinarySearch/INXS.pm",
+         "version" : "0.01"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/daoswald/List-BinarySearch-INXS.git",
+         "web" : "https://github.com/daoswald/List-BinarySearch-INXS"
+      }
+   },
+   "version" : "0.01"
+}
